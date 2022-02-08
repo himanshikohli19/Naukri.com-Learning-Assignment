@@ -1,3 +1,8 @@
+'''
+Write a Python program to convert the month name to a number of days.
+'''
+#TIME COMPLEXITY: O(1)
+
 def get_month_days(month):
     month = month.strip().lower()
     if month == "february":
