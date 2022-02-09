@@ -9,7 +9,7 @@ one value per line as follows:
 - If i is not a multiple of 4 or 5, print value of i
 """
 #TIME COMPLEXITY: O(N)
-#SPACE COMPLEXITY: O(1)
+
 def fizz_buzz(number):
     count_four = count_five = 0
 
