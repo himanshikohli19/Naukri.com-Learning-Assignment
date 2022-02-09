@@ -1,4 +1,4 @@
-'''
+"""
 FizzBuzz Problem:
 
 Given a number n, for each integer i in the range from 1 to n inclusive, print
@@ -7,7 +7,7 @@ one value per line as follows:
 - If i is multiple of 4 (but not 5) print Fizz.
 - If i is multiple of 5 (but not 4) print Fizz.
 - If i is not a multiple of 4 or 5, print value of i
-'''
+"""
 #TIME COMPLEXITY: O(N)
 #SPACE COMPLEXITY: O(1)
 def fizz_buzz(number):
