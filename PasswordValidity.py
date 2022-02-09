@@ -8,43 +8,34 @@ Maximum length 16 characters.
 """
 #TIME COMPLEXITY: O(N)
 
-from enum import IntEnum
-
-SPECIAL_CHARS = "!@#$%^&*()-+_"
-
-class PasswordConditions(IntEnum):
-    
-    #This class will store the index of password conditions
-    NUMBER = 0
-    LOWERCASE = 1
-    UPPERCASE = 2
-    SPECIAL_CHAR = 3
-
-
-def valid_password(password):
-    if len(password) > 16 or len(password) < 8:
+def is_password_valid(n, password):
+    if n < 8 and n >16:
         return False
 
-    password_checks = [False] * len(PasswordConditions)
+    special_characters = "!@#$%^&*()-+_"
+    digit = lower =  upper = special_char = False 
 
+    
     for char in password:
         if char.isdigit():
-            password_checks[PasswordConditions.NUMBER] = True
-        elif char.isupper():
-            password_checks[PasswordConditions.UPPERCASE] = True
+            digit = True
         elif char.islower():
-            password_checks[PasswordConditions.LOWERCASE] = True
-        elif char in SPECIAL_CHARS:
-            password_checks[PasswordConditions.SPECIAL_CHAR] = True
+            lower = True
+        elif char.isupper():
+            upper = True
+        elif char in special_characters:
+            special_char = True
         else:
             return False
 
-    return all(password_checks)
-
+    return digit and lower and upper and special_char
+ 
 #Driver Code
 if __name__ == '__main__':
-    user_password = input("Enter Password:\n")
-    if valid_password(user_password):
-        print("Valid Password!")
+    password = input("Enter Password:\n")
+    n = len(password)  # stores the length of the input password
+    is_valid = is_password_valid(n, password) 
+    if is_valid:
+        print(f"{password} is a valid password.")
     else:
-        print("Invalid Password! Try Again.")
+        print(f"{password} is an invalid password. Try Again.")
